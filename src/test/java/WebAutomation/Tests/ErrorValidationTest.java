@@ -17,7 +17,7 @@ public class ErrorValidationTest extends BaseTest {
 		String userEmail = "Test2024@gmail.com";
 		String wrongPassword = "AAABBBCCC";
 //		String errorMessage = "Incorrect email or password."; 
-		String errorMessage = "Incorrect email or password.XX"; // cause Test fail
+		String errorMessage = "Incorrect email or password."; // cause Test fail
 		loginPage.loginApplication(userEmail, wrongPassword);
 		Assert.assertEquals(loginPage.getErrorMessage(), errorMessage);
 	}
