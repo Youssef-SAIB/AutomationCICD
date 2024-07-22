@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="3" total="4" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-07-19T16:53:12 WEST" name="Suite" finished-at="2024-07-19T16:53:31 WEST" duration-ms="19160">
+    <groups>
+      <group name="ErrorHandling">
+        <method signature="ErrorValidationTest.addProductErrorValidation()[pri:0, instance:WebAutomation.Tests.ErrorValidationTest@565f390]" name="addProductErrorValidation" class="WebAutomation.Tests.ErrorValidationTest"/>
+      </group> <!-- ErrorHandling -->
+    </groups>
+    <test started-at="2024-07-19T16:53:12 WEST" name="Submit Order Test" finished-at="2024-07-19T16:53:12 WEST" duration-ms="21">
+    </test> <!-- Submit Order Test -->
+    <test started-at="2024-07-19T16:53:12 WEST" name="Error Validation Test" finished-at="2024-07-19T16:53:31 WEST" duration-ms="19159">
+      <class name="WebAutomation.Tests.ErrorValidationTest">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:WebAutomation.Tests.ErrorValidationTest@565f390]" started-at="2024-07-19T16:53:12 WEST" name="launchApplication" finished-at="2024-07-19T16:53:23 WEST" duration-ms="11108" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="addProductErrorValidation()[pri:0, instance:WebAutomation.Tests.ErrorValidationTest@565f390]" started-at="2024-07-19T16:53:23 WEST" name="addProductErrorValidation" finished-at="2024-07-19T16:53:30 WEST" duration-ms="7262" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addProductErrorValidation -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:WebAutomation.Tests.ErrorValidationTest@565f390]" started-at="2024-07-19T16:53:30 WEST" name="tearDown" finished-at="2024-07-19T16:53:31 WEST" duration-ms="678" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- WebAutomation.Tests.ErrorValidationTest -->
+    </test> <!-- Error Validation Test -->
+  </suite> <!-- Suite -->
+</testng-results>

@@ -1,0 +1,15 @@
+[
+	{
+		"email" : "Test2024@gmail.com",
+		"password" : "Abc123456789",
+		"product" : "ADIDAS ORIGINAL"
+		
+	},
+	
+	{
+		"email" : "Test2030@gmail.com",
+		"password" : "Abc1234567890",
+		"product" : "ZARA COAT 3"
+		
+	}
+]

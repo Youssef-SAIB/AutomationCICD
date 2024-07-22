@@ -1,0 +1,58 @@
+Remark 1: Section22 | video 177 | 06:00 minute
+	when a test fail =>  Example:  ErrorValidationTest->addProductErrorValidation()
+	then @AfterMethod lunched so the driver it killed 
+	then the testNG Listener call method 'onTestFailure()'
+	inside 'onTestFailure()' we call 'getScreenShot' method where we use 'driver' , but at this moment the driver is killed (driver=null)
+	So 'getScreenShot' method failed -then- 'onTestFailure()' failed -then- all the rest of method(@Test) in ErrorValidationTest(class) stop running
+	Solution : Add 'WebDriver driver' to  'getScreenShot()' method
+
+
+Remark 2 : Section22 | video 177 |
+	we should always add <listeners> <listener class-name="WebAutomation.TestComponents.Listeners"/> </listeners> to suite.xml file 
+	If not , TestNG will not consider those listener method when running tests
+	
+
+Remark 3 : Section22 | video 178 | 00:00 minute
+	when we run suite.xml in parallel mode , all test running in parallel use the same ExtentTest object (testReport)
+	Solution : use ThreadLocal class in 'Listener' => for every ExtentTest initiated (testReport) for a method(@Test) we put it in the ThreadLocal (.set(..))
+			   then whenever we want to use this ExtentTest (testReport) [example in "onTestFailure()"] we call it from the ThreadLocal (.get(..)) 
+			   So this initiated ExtentTest (testReport) will not be used with other method(@Test) 
+			   
+
+Remark 4 : Section22 | video 179 | 00:00 minute | title: flaky test
+	when we run a test and it failed, maybe we want to retest it one more time, so we are sure that is a real fail
+	we can add the 'Retry' class which implements IRetryAnalyzer interface to our Selenium Framework
+	to make a test retry one more time when it fail, we should add "retryAnalyze=Retry.class" to the method(@Test)
+	How retry() method work:  to run one more time the failed test the method retry() should return true
+	Sequence : when test fail -> execute retry() in Retry class -> if test still failing execute onTestFailure() in Listeners class 
+	 
+	I have failed to use retry with ErroValidationTest->addProductErrorValidation() method => "skip -then- pass" instead of "skip -then- fail"
+	it's work well with ErroValidationTest->loginErrorValidation() method 
+	
+
+Remark 5 : Section23 | video 180 | 04:50 minute | title: run suite.xml from terminal using maven plugin
+           cmd : mvn test -PRegression  (-P == Profil in pom.xml file) (Regression is the id of that profil)
+
+Remark 6 : Section23 | video 181 | 00:00 minute | title: set Global parameters using maven commands
+		   we can change dynamically Global parameter (in GlobalData.properties) using maven plugin (run with terminal)
+		   Example change browser { chrome, firefox or edge, ..}
+		   we add a condition in BaseTest class , to verify if we are receiving a value for browser from maven terminal to use it
+		   if not we use the value from the file GlobalData.properties
+		   cmd : mvn test -Dbrowser=firefox  (-D == maven parameters)
+		   
+Remark 7 : Section23 | video 184 | 00:00 minute | title: run tests in headless mode , 
+		   add a condition to BaseTest to see if the value come from maven terminal and contain "headless" => run in headless
+		   if not run with normal browser (from GlobalData.properties) 
+		   we should add an instruction to be sure that the browser in headless mode is running in maximize mode (see BaseTest)
+		   
+Remark 8 : Run jenkins windows , we should execute command in cmd as Admin
+		   cmd : C:\Windows\System32>net start jenkins  | ... net stop jenkins
+		   Run jenkins.war , execute the next command in cmd 
+		   cmd : java -jar jenkins.war --httpPort=9090
+			
+
+Remark 9 : Section25 | video 195 | 06:50 minute | title: Cucumber
+		   we can use "tidy gherkin" extension for google chrome to generate step definition..
+	
+	
+	

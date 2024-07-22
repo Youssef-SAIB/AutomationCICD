@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Suite">
+	
+	<listeners>
+		<listener class-name="WebAutomation.TestComponents.Listeners"/>
+	</listeners>
+	
+	<test thread-count="5" name="Submit Order Test">
+		<classes>
+			<class name="WebAutomation.Tests.SubmitOrderTest" />
+		</classes>
+	</test>
+
+	<test thread-count="5" name="Error Validation Test">
+		<classes>
+			<class name="WebAutomation.Tests.ErrorValidationTest" />
+		</classes>
+	</test>
+</suite>
+
+
+<!--If you want classe run parralely : paralle="test" 
+	Runing sequence : method1(class1) + method1(class2)
+					  method2(class1) + method2(class2)
+-->
+
+<!--If you want methods run parralely : paralle="methods" 
+	Runing sequence : method1(class1) + method2(class1) + method1(class2) + method2(class2)
+	Becarfull ! in our case if we run methods parallely we will got error with driver setup and tearDown
+	So we should not use it 
+-->
+
+<!--thread-count="5" limit number of test can be run in once time even if we put "parallel=test"
+-->
+
+
+<!--parallel="tests"-->

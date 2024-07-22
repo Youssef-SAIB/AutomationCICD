@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Suite">
+  
+  <groups>
+	<run>
+		<include name="Purchase"/>
+	</run>
+  </groups>
+  
+  <listeners>
+		<listener class-name="WebAutomation.TestComponents.Listeners"/>
+	</listeners>
+  
+  <test thread-count="5" name="Submit Order Test">
+    <classes>
+      <class name="WebAutomation.Tests.SubmitOrderTest"/>
+    </classes>
+  </test>
+  
+  <test thread-count="5" name="Error Validation Test">
+    <classes>
+      <class name="WebAutomation.Tests.ErrorValidationTest"/>
+    </classes>
+  </test> 
+  
+</suite> 
+
+
+<!--When we try to run only tests belong to group "ErrorHandling" testNG exclude also 
+	@beforMethod and @AfterMethod so it's not executed which gives an error
+	to avoid this issue we should add "alwaysRun=true" to those two method
+-->
